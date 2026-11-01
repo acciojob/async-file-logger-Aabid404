@@ -9,3 +9,15 @@ const fileNames = [
 
 // do not change the code above
 // add your code here
+const fs = require("fs");
+
+fileNames.forEach((fileName, index) => {
+    fs.readFile(fileName, "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        console.log(`File ${index + 1}:  ${data}`);
+    });
+});
